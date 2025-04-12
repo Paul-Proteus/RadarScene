@@ -1,5 +1,7 @@
 # RadarScene User Authentication Service
 
+## User Authentication Architecture
+
 ```mermaid
 flowchart TD
     %% Client Layer
@@ -54,36 +56,39 @@ flowchart TD
     Redis -- "3. Confirm valid token" --> AuthAPI
     AuthAPI -- "4. Proceed with request" --> UserService
     
-    classDef clientNode fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef apiNode fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef serviceNode fill:#bfb,stroke:#333,stroke-width:2px;
-    classDef dataNode fill:#fbb,stroke:#333,stroke-width:2px;
-    classDef externalNode fill:#ffd,stroke:#333,stroke-width:2px;
+    classDef clientNode fill:#f9f,stroke:#333,stroke-width:2px
+    classDef apiNode fill:#bbf,stroke:#333,stroke-width:2px
+    classDef serviceNode fill:#bfb,stroke:#333,stroke-width:2px
+    classDef dataNode fill:#fbb,stroke:#333,stroke-width:2px
+    classDef externalNode fill:#ffd,stroke:#333,stroke-width:2px
     
-    class WebClient clientNode;
-    class AuthAPI apiNode;
-    class UserService serviceNode;
-    class PostgreSQL,Redis dataNode;
-    class OAuth externalNode;
+    class WebClient clientNode
+    class AuthAPI apiNode
+    class UserService serviceNode
+    class PostgreSQL,Redis dataNode
+    class OAuth externalNode
 ```
 
 ## User Authentication Flows
 
-### Registration Flow
+### 1. Registration Flow
+
 ```mermaid
 flowchart LR
     User -- "Register with credentials" --> WebClient -- "Submit credentials" --> Backend -- "Create account" --> Database
     Backend -- "Return JWT token" --> WebClient -- "Store token locally" --> User
 ```
 
-### Login Flow
+### 2. Login Flow
+
 ```mermaid
 flowchart LR
     User -- "Enter credentials" --> WebClient -- "Submit credentials" --> Backend -- "Verify credentials" --> Database
     Backend -- "Return JWT token" --> WebClient -- "Store token locally" --> User
 ```
 
-### OAuth Flow
+### 3. OAuth Flow
+
 ```mermaid
 flowchart LR
     User -- "Click OAuth button" --> WebClient -- "Redirect to OAuth provider" --> OAuthProvider -- "Authenticate user" --> User
@@ -92,7 +97,8 @@ flowchart LR
     Backend -- "Return JWT token" --> WebClient -- "Store token locally" --> User
 ```
 
-### API Authentication
+### 4. API Authentication
+
 ```mermaid
 flowchart LR
     WebClient -- "API request with JWT token" --> Backend -- "Verify token" --> TokenStore -- "Token valid" --> Backend
