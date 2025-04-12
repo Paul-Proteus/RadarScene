@@ -1,3 +1,6 @@
+# RadarScene User Authentication Service
+
+```mermaid
 flowchart TD
     %% Client Layer
     WebClient["Web Frontend\n(React/Vue.js)"]
@@ -62,9 +65,6 @@ flowchart TD
     class UserService serviceNode;
     class PostgreSQL,Redis dataNode;
     class OAuth externalNode;
-    
-    title["RadarScene - User Authentication Service"]
-    style title fill:#fff,stroke:#fff
 ```
 
 ## User Authentication Flows
@@ -72,28 +72,29 @@ flowchart TD
 ### Registration Flow
 ```mermaid
 flowchart LR
-    User -- "Register with\ncredentials" --> WebClient -- "Submit\ncredentials" --> Backend -- "Create\naccount" --> Database
-    Backend -- "Return JWT token" --> WebClient -- "Store token\nlocally" --> User
+    User -- "Register with credentials" --> WebClient -- "Submit credentials" --> Backend -- "Create account" --> Database
+    Backend -- "Return JWT token" --> WebClient -- "Store token locally" --> User
 ```
 
 ### Login Flow
 ```mermaid
 flowchart LR
-    User -- "Enter\ncredentials" --> WebClient -- "Submit\ncredentials" --> Backend -- "Verify\ncredentials" --> Database
-    Backend -- "Return JWT token" --> WebClient -- "Store token\nlocally" --> User
+    User -- "Enter credentials" --> WebClient -- "Submit credentials" --> Backend -- "Verify credentials" --> Database
+    Backend -- "Return JWT token" --> WebClient -- "Store token locally" --> User
 ```
 
 ### OAuth Flow
 ```mermaid
 flowchart LR
-    User -- "Click OAuth\nbutton" --> WebClient -- "Redirect to\nOAuth provider" --> OAuthProvider -- "Authenticate\nuser" --> User
-    OAuthProvider -- "Return auth\ncode" --> Backend -- "Verify with\nprovider" --> OAuthProvider
-    Backend -- "Create/update\nuser account" --> Database
-    Backend -- "Return JWT\ntoken" --> WebClient -- "Store token\nlocally" --> User
+    User -- "Click OAuth button" --> WebClient -- "Redirect to OAuth provider" --> OAuthProvider -- "Authenticate user" --> User
+    OAuthProvider -- "Return auth code" --> Backend -- "Verify with provider" --> OAuthProvider
+    Backend -- "Create/update user account" --> Database
+    Backend -- "Return JWT token" --> WebClient -- "Store token locally" --> User
 ```
 
 ### API Authentication
 ```mermaid
 flowchart LR
-    WebClient -- "API request\nwith JWT token" --> Backend -- "Verify\ntoken" --> TokenStore -- "Token\nvalid" --> Backend
-    Backend -- "Authorized\nresponse" --> WebClient
+    WebClient -- "API request with JWT token" --> Backend -- "Verify token" --> TokenStore -- "Token valid" --> Backend
+    Backend -- "Authorized response" --> WebClient
+```
