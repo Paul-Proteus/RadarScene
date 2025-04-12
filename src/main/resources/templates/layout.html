@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadarScene - Hyper-Local Discovery</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <span>RadarScene</span>
+            </a>
+            <div sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post" style="display: inline;">
+                    <button type="submit" class="btn" style="width: auto; padding: 6px 12px;">Logout</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <th:block th:replace="${content}">
+            <!-- Content will be inserted here -->
+        </th:block>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 RadarScene. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

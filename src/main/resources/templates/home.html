@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <th:block th:fragment="content">
+        <div class="card">
+            <div sec:authorize="isAuthenticated()">
+                <h2>Welcome, <span sec:authentication="name"></span>!</h2>
+                <p>You are now logged in to RadarScene.</p>
+                
+                <div class="features-preview">
+                    <h3>Your Scenes Dashboard</h3>
+                    <p>Coming soon: Create and manage your personalized scenes for hyper-niche interests in your local area.</p>
+                    
+                    <div class="scene-options">
+                        <div class="scene-option">
+                            <h4>Create a New Scene</h4>
+                            <p>Set up a new scene for one of your hyper-niche interests</p>
+                            <button class="btn" disabled>Coming Soon</button>
+                        </div>
+                        
+                        <div class="scene-option">
+                            <h4>Today's AI-Generated Blog</h4>
+                            <p>Your daily personalized content based on your interests</p>
+                            <button class="btn" disabled>Coming Soon</button>
+                        </div>
+                    </div>
+                    
+                    <form th:action="@{/logout}" method="post" style="margin-top: 30px;">
+                        <button type="submit" class="btn">Logout</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div sec:authorize="isAnonymous()">
+                <h2>Welcome to RadarScene</h2>
+                <p>Discover hyper-local, hyper-niche points of interest tailored just for you.</p>
+                
+                <div class="hero-content">
+                    <h3>How It Works</h3>
+                    <ol>
+                        <li><strong>Create an account</strong> - Sign up to get started</li>
+                        <li><strong>Set up your scenes</strong> - Tell us about your specific interests</li>
+                        <li><strong>Get personalized content</strong> - Receive daily AI-generated blogs about your interests</li>
+                    </ol>
+                    
+                    <div class="cta-buttons">
+                        <a th:href="@{/register}" class="btn">Register Now</a>
+                        <a th:href="@{/login}" class="btn" style="background-color: #5a7bd6; margin-left: 10px;">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            .features-preview {
+                margin-top: 20px;
+            }
+            .scene-options {
+                display: flex;
+                gap: 20px;
+                margin-top: 20px;
+            }
+            .scene-option {
+                flex: 1;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
+            .hero-content {
+                margin-top: 20px;
+            }
+            .cta-buttons {
+                margin-top: 30px;
+            }
+            .btn[disabled] {
+                background-color: #aaa;
+                cursor: not-allowed;
+            }
+        </style>
+    </th:block>
+</body>
+</html>
