@@ -1,0 +1,69 @@
+# RadarScene Project Requirements Template
+
+## 1. Overview
+- Project Name: RadarScene
+- Project Description: This application allows a User to setup a "scene". A "scene" is an automatically generated collection points of interests for a hyper-niche interest. For example, if a User creates a "Photography Scene", then the application will automatically generate a collection of points of interests for photography specific to that User
+- Target Users: People looking to be extremely clued-in to hyper-local hyper niche scenes. 
+- Key Goals: 
+
+## 2. Functional Requirements
+### 2.1 Core Features
+- REQ-1.1: [Specific requirement description]
+  - Priority: [High/Medium/Low]
+  - Acceptance Criteria: [How we know when this requirement is fulfilled]
+  - Dependencies: [Any other requirements this depends on]
+
+- REQ-1.2: [Specific requirement description]
+  - Priority: [High/Medium/Low]
+  - Acceptance Criteria: [How we know when this requirement is fulfilled]
+  - Dependencies: [Any other requirements this depends on]
+
+### 2.2 User Interface Requirements
+- REQ-2.1: [UI-specific requirement]
+  - Priority: [High/Medium/Low]
+  - Acceptance Criteria: [How we know when this requirement is fulfilled]
+  - Mock-ups/References: [References to visual designs if available]
+
+### 2.3 Data Requirements
+- REQ-3.1: [Data handling/processing requirement]
+  - Priority: [High/Medium/Low]
+  - Data Sources: [Where data comes from]
+  - Data Format: [Expected format of data]
+  - Storage Requirements: [How data should be stored]
+
+## 3. Non-Functional Requirements
+### 3.1 Performance
+- NFREQ-1.1: [Performance requirement]
+  - Measurable Target: [Specific performance metric]
+
+### 3.2 Security
+- NFREQ-2.1: [Security requirement]
+  - Standard/Compliance: [Any standards that must be followed]
+
+### 3.3 Scalability
+- NFREQ-3.1: [Scalability requirement]
+  - Expected Scale: [Metrics about expected load/usage]
+
+### 3.4 Usability
+- NFREQ-4.1: [Usability requirement]
+  - Target User Experience: [Description of expected user experience]
+
+## 4. Technical Constraints
+- TC-1: [Technical limitation or constraint]
+  - Impact: [How this affects the project]
+  - Mitigation: [How to work within this constraint]
+
+## 5. Dependencies
+- DEP-1: [External dependency]
+  - Source/Provider: [Where this dependency comes from]
+  - Version Requirements: [Version constraints if applicable]
+  - Integration Points: [How this integrates with our system]
+
+## 6. Future Enhancements
+- FE-1: [Feature for future consideration]
+  - Potential Timeline: [When this might be implemented]
+  - Dependencies: [What needs to be in place first]
+
+## 7. Glossary
+- Term 1: [Definition]
+- Term 2: [Definition]
